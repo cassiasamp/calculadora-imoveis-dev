@@ -1,2 +1,2 @@
 pip_freeze > requirements.txt
-web: gunicorn app:app
+web: gunicorn app:app --log-file - --log-level debug
