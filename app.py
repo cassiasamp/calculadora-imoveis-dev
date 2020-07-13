@@ -7,8 +7,11 @@ https://pythonhow.com/add-css-to-flask-website/
 import numpy as np
 from flask import Flask, render_template, request, jsonify
 import pickle
+import logging
 
 app = Flask(__name__)
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 model = pickle.load(open('regressor.pkl', 'rb'))
 
 zona_to_onehot = {'norte': np.array([1, 0, 0]),
